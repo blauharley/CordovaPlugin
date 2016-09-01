@@ -147,30 +147,15 @@ public class CordovaPluginLauncher extends CordovaPlugin {
 			
 			// Aufbau einer Standortinformation 			
 			JSONObject locationinfo = new JSONObject(); 
-			JSONObject coords = new JSONObject(); 	         	        
 			
-			// Information zur Bestimmung der Genauigkeit 	        
+			// Information zur Bestimmung der Genauigkeit 	
+			JSONObject coords = new JSONObject();     
 			coords.put("latitude",location.getLatitude()); 	        
 			coords.put("longitude",location.getLongitude()); 	        
 			coords.put("accurancy", location.getAccuracy()); 
-				         	        
-			if(location.hasBearing()){ 	        	
-			  coords.put("heading", location.getBearing());	 	        
-			} 	        
-			
-			if(location.hasAltitude()){ 	        	
-			  coords.put("altitude", location.getAltitude());	 	        
-			} 	        
-			
-			if(location.hasSpeed()){ 	        	
-			  coords.put("speed", location.getSpeed());	 	        
-			} 	         			
 			
 			locationinfo.put("coords",coords); 			 			
 			
-			// Das Alter einer Standortkoordinate 			
-			locationinfo.put("timestamp", location.getElapsedRealtimeNanos()/1000000);
-
 			return locationinfo;
 			
 		}
