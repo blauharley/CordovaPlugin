@@ -42,14 +42,14 @@ module.exports = {
          options:{
              maximumAge: integer,
              timeout: integer,
-             enableHighAccurancy: boolean
+             enableHighAccuracy: boolean
          }
      */
     getCurrentLocation : function (successCallback, errorCallback, options) {
         var maximumAge = options && options.maximumAge && options.maximumAge != 0 ? options.maximumAge : -1;
         var timeout = options && options.timeout && options.timeout != Infinity ? options.timeout : -1;
-        var enableHighAccurancy = options && options.enableHighAccurancy ? options.enableHighAccurancy  : false;
-        exec(successCallback, errorCallback, "CordovaPlugin", "request", [maximumAge,timeout,enableHighAccurancy]);
+        var enableHighAccuracy = options && options.enableHighAccuracy ? options.enableHighAccuracy  : false;
+        exec(successCallback, errorCallback, "CordovaPlugin", "request", [maximumAge,timeout,enableHighAccuracy]);
     }
 
 };

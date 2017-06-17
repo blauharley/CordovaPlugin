@@ -43,7 +43,7 @@ public class CordovaPluginLauncher extends CordovaPlugin {
 	
 	private long maximumAge;
 	private long timeout;
-	private boolean enableHighAccurancy;
+	private boolean enableHighAccuracy;
 	
 	private Handler timeoutHandler = null;
 	
@@ -64,7 +64,7 @@ public class CordovaPluginLauncher extends CordovaPlugin {
 			
 			maximumAge = args.getLong(0);
 			timeout = args.getLong(1);
-			enableHighAccurancy = args.getBoolean(2);
+			enableHighAccuracy = args.getBoolean(2);
 			
 			if(ACTION_REQUEST_PROVIDER.equalsIgnoreCase(action)){
 				PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
@@ -121,7 +121,7 @@ public class CordovaPluginLauncher extends CordovaPlugin {
 		locationManager = (LocationManager) thisAct.getSystemService(Context.LOCATION_SERVICE);
 		
 		Criteria c = new Criteria();
-        c.setAccuracy(enableHighAccurancy ? Criteria.ACCURACY_FINE : Criteria.ACCURACY_COARSE);
+        c.setAccuracy(enableHighAccuracy ? Criteria.ACCURACY_FINE : Criteria.ACCURACY_COARSE);
         
         String bestProvider = locationManager.getBestProvider(c,true);
 		locationManager.requestLocationUpdates(bestProvider, 0, 0, locationListener);
