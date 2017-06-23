@@ -152,9 +152,11 @@ public class CordovaPluginLauncher extends CordovaPlugin {
 			JSONObject coords = new JSONObject();     
 			coords.put("latitude",location.getLatitude()); 	        
 			coords.put("longitude",location.getLongitude()); 	        
-			coords.put("accurancy", location.getAccuracy()); 
+			coords.put("heading", location.getBearing()); 
+			coords.put("speed", location.getSpeed()); 
+			locationinfo.put("coords",coords); 	
 			
-			locationinfo.put("coords",coords); 			 			
+			locationinfo.put("timestamp",location.getTime());
 			
 			return locationinfo;
 			
